@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Red</string>
+    <string name="btnConexionHTTP">Conexion HTTP</string>
+    <string name="btnConexionAsincrona">Conexion Asíncrona</string>
+    <string name="btnConexionAHC">Conexion AHC</string>
+    <string name="btnConexionVolley">Conexion Volley</string>
+    <string name="btnDescarga">Descarga</string>
+    <string name="btnSubida">Subida</string>
+</resources>

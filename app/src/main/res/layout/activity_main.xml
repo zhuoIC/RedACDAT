@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.red.MainActivity">
+
+    <Button
+        android:id="@+id/btnConexionHTTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnConexionHTTP"
+        android:layout_marginTop="74dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnConexionAsincrona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnConexionHTTP"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/btnConexionAsincrona" />
+
+    <Button
+        android:id="@+id/btnConexionAHC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnConexionHTTP"
+        android:layout_below="@+id/btnConexionAsincrona"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnConexionAHC" />
+
+    <Button
+        android:id="@+id/btnConexionVolley"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text="@string/btnConexionAHC"
+        android:layout_below="@+id/btnConexionAHC"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnDescarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnConexionVolley"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:text="Descarga" />
+
+    <Button
+        android:id="@+id/btnSubida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnDescarga"
+        android:layout_marginBottom="21dp"
+        android:text="Subida" />
+</RelativeLayout>
