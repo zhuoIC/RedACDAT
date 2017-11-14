@@ -47,19 +47,6 @@ public class Conexion {
             return resultado;
         }
     }
-
-    private static String leer(InputStream entrada) throws IOException {
-        BufferedReader in;
-        String linea;
-        StringBuilder miCadena = new StringBuilder();
-        in = new BufferedReader(new InputStreamReader(entrada), 32000);
-        while ((linea = in.readLine()) != null)
-            miCadena.append(linea);
-//miCadena.append(linea).append('\n');
-        in.close();
-        return miCadena.toString();
-    }
-
     public static Resultado conectarApache(String texto) {
         CloseableHttpClient cliente = null;
         HttpPost peticion;
@@ -67,7 +54,7 @@ public class Conexion {
         int valor;
         Resultado resultado = new Resultado();
         try {
-//cliente = new DefaultHttpClient();
+            //cliente = new DefaultHttpClient();
             cliente = HttpClientBuilder.create().build();
             peticion = new HttpPost(texto);
             respuesta = cliente.execute(peticion);
@@ -93,5 +80,17 @@ public class Conexion {
                 }
         }
         return resultado;
+    }
+
+    private static String leer(InputStream entrada) throws IOException{
+        BufferedReader in;
+        String linea;
+        StringBuilder miCadena = new StringBuilder();
+        in = new BufferedReader(new InputStreamReader(entrada), 32000);
+        while ((linea = in.readLine()) != null)
+            miCadena.append(linea);
+        //miCadena.append(linea).append('\n');
+        in.close();
+        return miCadena.toString();
     }
 }

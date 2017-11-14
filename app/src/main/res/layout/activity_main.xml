@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
-        android:text="@string/btnConexionAHC"
+        android:text="@string/btnConexionVolley"
         android:layout_below="@+id/btnConexionAHC"
         android:layout_centerHorizontal="true" />
 

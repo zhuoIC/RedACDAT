@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnConexionHTTP = (Button) findViewById(R.id.btnConexionHTTP);
-        btnConexionAsincrona = (Button) findViewById(R.id.btnConexionAsincrona);
-        btnConexionVolley = (Button) findViewById(R.id.btnConexionVolley);
-        btnConexionAHC = (Button) findViewById(R.id.btnConexionAHC);
-        btnDescarga = (Button) findViewById(R.id.btnDescarga);
-        btnSubida = (Button) findViewById(R.id.btnSubida);
+        btnConexionHTTP = findViewById(R.id.btnConexionHTTP);
+        btnConexionAsincrona = findViewById(R.id.btnConexionAsincrona);
+        btnConexionVolley = findViewById(R.id.btnConexionVolley);
+        btnConexionAHC = findViewById(R.id.btnConexionAHC);
+        btnDescarga = findViewById(R.id.btnDescarga);
+        btnSubida = findViewById(R.id.btnSubida);
         btnConexionAsincrona.setOnClickListener(this);
         btnConexionHTTP.setOnClickListener(this);
         btnConexionAHC.setOnClickListener(this);

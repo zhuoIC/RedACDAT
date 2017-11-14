@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.red.ConexionHTTPActivity">
+    tools:context="com.example.red.ConexionAHCActivity">
 
     <TextView
         android:id="@+id/txvIntroducir"
@@ -19,37 +19,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="http://192.168.3.57/acceso/prueba.txt" />
-
-    <RadioGroup
-        android:id="@+id/rdgConexion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rdbJava"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Java" />
-
-        <RadioButton
-            android:id="@+id/rdbApache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Apache" />
+        android:text="https://meneame.net" />
 
         <Button
             android:id="@+id/btnConectar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="CONECTAR" />
 
-    </RadioGroup>
 
     <WebView
         android:id="@+id/wbvMostrar"
