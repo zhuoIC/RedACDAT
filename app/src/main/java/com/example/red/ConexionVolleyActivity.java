@@ -46,6 +46,7 @@ public class ConexionVolleyActivity extends AppCompatActivity implements View.On
         mButton.setOnClickListener(this);
         mWebView = findViewById(R.id.wbvMostrar);
         mTextView = findViewById(R.id.txvTiempo);
+        mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
     }
 
     @Override
@@ -61,7 +62,7 @@ public class ConexionVolleyActivity extends AppCompatActivity implements View.On
     public void makeRequest(String url) {
         final String enlace = url;
         // Instantiate the RequestQueue.
-        mRequestQueue = Volley.newRequestQueue(this);
+        //mRequestQueue = Volley.newRequestQueue(this);
 
         final ProgressDialog progreso = new ProgressDialog(ConexionVolleyActivity.this);
         progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
