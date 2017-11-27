@@ -15,13 +15,12 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConexionAHCActivity extends AppCompatActivity implements View.OnClickListener{
-
+public class ConexionAHCActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText direccion;
     Button conectar;
-    TextView tiempo;
-    EditText url;
     WebView web;
-    long inicio,fin;
+    TextView tiempo;
+    long fin, inicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +31,44 @@ public class ConexionAHCActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void iniciar() {
+        direccion = findViewById(R.id.edtURL);
         conectar = findViewById(R.id.btnConectar);
-        tiempo = findViewById(R.id.txvTiempo);
-        url = findViewById(R.id.edtURL);
-        web = findViewById(R.id.wbvMostrar);
         conectar.setOnClickListener(this);
+        web = findViewById(R.id.wbvMostrar);
+        tiempo = findViewById(R.id.txvTiempo);
+        //StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
     }
 
     @Override
-    public void onClick(View v) {
-        AAHC();
-
+    public void onClick(View view) {
+        if (view == conectar) {
+            AAHC();
+        }
     }
 
     private void AAHC() {
-        final String texto = url.getText().toString();
+        final String texto = direccion.getText().toString();
         final ProgressDialog progreso = new ProgressDialog(ConexionAHCActivity.this);
         inicio = System.currentTimeMillis();
         RestClient.get(texto, new TextHttpResponseHandler() {
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+                fin = System.currentTimeMillis();
+                progreso.dismiss();
+                web.loadDataWithBaseURL(null, "Error: " + " " + throwable.getMessage(), "text/html", "UTF-8", null);
+                tiempo.setText("Duración: " + String.valueOf(fin - inicio) + " milisegundos");
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                // called when response HTTP status is "200 OK"
+                fin = System.currentTimeMillis();
+                progreso.dismiss();
+                web.loadDataWithBaseURL(null, responseString, "text/html", "UTF-8", null);
+                tiempo.setText("Duración: " + String.valueOf(fin - inicio) + " milisegundos");
+            }
 
             @Override
             public void onStart() {
@@ -59,27 +78,10 @@ public class ConexionAHCActivity extends AppCompatActivity implements View.OnCli
                 //progreso.setCancelable(false);
                 progreso.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     public void onCancel(DialogInterface dialog) {
-                            RestClient.cancelRequests(getApplicationContext(), true);
+                        RestClient.cancelRequests(getApplicationContext(), true);
                     }
                 });
                 progreso.show();
-            }
-
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                fin = System.currentTimeMillis();
-                progreso.dismiss();
-                web.loadDataWithBaseURL(null, responseString.toString(), "text/html", "UTF-8", null);
-                tiempo.setText("Duración: " + String.valueOf(fin - inicio) + " milisegundos");
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                fin = System.currentTimeMillis();
-                progreso.dismiss();
-                web.loadDataWithBaseURL(null, responseString.toString(), "text/html", "UTF-8", null);
-                tiempo.setText("Duración: " + String.valueOf(fin - inicio) + " milisegundos");
             }
         });
     }

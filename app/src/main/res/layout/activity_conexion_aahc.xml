@@ -24,22 +24,20 @@
         <Button
             android:id="@+id/btnConectar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:text="CONECTAR" />
 
 
     <WebView
         android:id="@+id/wbvMostrar"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="wrap_content">
 
     </WebView>
 
     <TextView
         android:id="@+id/txvTiempo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
